@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806132021) do
+ActiveRecord::Schema.define(version: 20170806133927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,4 +22,17 @@ ActiveRecord::Schema.define(version: 20170806132021) do
     t.index ["url"], name: "index_urls_on_url", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.string "HTTP_VERSION"
+    t.string "HTTP_USER_AGENT"
+    t.string "HTTP_ACCEPT_LANGUAGE"
+    t.string "REMOTE_ADDR"
+    t.string "SERVER_NAME"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "url_id"
+    t.index ["url_id"], name: "index_visits_on_url_id"
+  end
+
+  add_foreign_key "visits", "urls"
 end
