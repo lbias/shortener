@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppController < ApplicationController
   include ::ActionController::Cookies
 
@@ -27,5 +29,5 @@ class AppController < ApplicationController
       unique_visit = UniqueVisit.create(url: @url).reload
       cookies.permanent.signed[:visitor_uuid] = unique_visit.visitor_uuid
     end
-  end  
+  end
 end
