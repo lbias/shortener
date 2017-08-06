@@ -1,0 +1,2 @@
+class UniqueVisit < ApplicationRecord
+end
