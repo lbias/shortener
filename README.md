@@ -1,5 +1,7 @@
 # A Url Shortener
 
+![me](https://github.com/lbias/shortener/blob/master/app/assets/images/me.png)
+
 ## Design
 
 1. Store long url in table `urls`. Use base_62 of incremental id as shortened url.
